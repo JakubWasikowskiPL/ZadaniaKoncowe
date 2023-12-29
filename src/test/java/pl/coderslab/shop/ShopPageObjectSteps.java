@@ -72,7 +72,7 @@ public class ShopPageObjectSteps {
         String addressAsText = myAddressesPage.getFirstAddressAsText();
         String aliasTekst = myAddressesPage.getFirstAddressAliasAsText();
         String[] adressTextArray = Arrays.stream(addressAsText.split("\\n")).toList().toArray(new String[0]);
-        for (String adressText:adressTextArray) {
+        for (String adressText : adressTextArray) {
             System.out.println(adressText);
         }
         String actualAdress = String.join("\n", aliasTekst, adressTextArray[1], adressTextArray[2], adressTextArray[3],

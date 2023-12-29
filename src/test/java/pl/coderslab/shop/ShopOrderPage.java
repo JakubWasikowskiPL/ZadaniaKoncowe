@@ -3,10 +3,9 @@ package pl.coderslab.shop;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ShopOrderPage {
-    private final WebDriver driver;
+public class ShopOrderPage extends BasePage {
+
 
     @FindBy(xpath = "//div[@id=\"delivery-addresses\"]/article[1]")
     private WebElement adressSelection;
@@ -30,8 +29,7 @@ public class ShopOrderPage {
     private WebElement placeOrderBtn;
 
     public ShopOrderPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void selectAdress() {
@@ -42,22 +40,23 @@ public class ShopOrderPage {
         confirmAdressBtn.click();
     }
 
-    public void selectShippingMethod(){
+    public void selectShippingMethod() {
         shippinMethodBtn.click();
     }
-    public void confirmDelivery(){
+
+    public void confirmDelivery() {
         confirmDeliveryBtn.click();
     }
 
-    public void selectPaymentMethod(){
+    public void selectPaymentMethod() {
         paymentMethod.click();
     }
 
-    public void selectTermsAgreement(){
+    public void selectTermsAgreement() {
         termsAgrrmentCheckBox.click();
     }
 
-    public void clickPlaceOrderBtn(){
+    public void clickPlaceOrderBtn() {
         placeOrderBtn.click();
     }
 }

@@ -3,10 +3,8 @@ package pl.coderslab.shop;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ShopMyAccountPage {
-    private final WebDriver driver;
+public class ShopMyAccountPage extends BasePage {
 
     @FindBy(xpath = "//a[@class=\"account\"]/span")
     private WebElement userInfo;
@@ -21,8 +19,7 @@ public class ShopMyAccountPage {
     private WebElement myClothesBtn;
 
     public ShopMyAccountPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public String getUserName() {
