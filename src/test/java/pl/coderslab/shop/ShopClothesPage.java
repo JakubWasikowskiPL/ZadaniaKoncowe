@@ -3,10 +3,8 @@ package pl.coderslab.shop;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ShopClothesPage {
-    private final WebDriver driver;
+public class ShopClothesPage extends BasePage{
 
     @FindBy(className = "cart-products-count")
     private WebElement cartItemsQuantity;
@@ -17,8 +15,7 @@ public class ShopClothesPage {
 
 
     public ShopClothesPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public Boolean isEmpty() {

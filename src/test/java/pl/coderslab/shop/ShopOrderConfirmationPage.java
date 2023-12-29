@@ -1,24 +1,22 @@
 package pl.coderslab.shop;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
-import org.apache.commons.io.FileUtils;
 
-public class ShopOrderConfirmationPage {
-    private final WebDriver driver;
+public class ShopOrderConfirmationPage extends BasePage {
+
 
     public ShopOrderConfirmationPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void takeScreenshot(String fileName) throws IOException {
-        TakesScreenshot scrShot = ((TakesScreenshot) driver);
+        TakesScreenshot scrShot = ((TakesScreenshot) getDriver());
         File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
         File DestFile = new File(fileName);
         FileUtils.copyFile(SrcFile, DestFile);

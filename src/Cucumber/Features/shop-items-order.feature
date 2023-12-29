@@ -25,4 +25,4 @@ Feature: User order an item
 
     Examples:
       | login             | passwd          | discount | size | quantity |
-      | "jakub@gmail.com" | "admin1234!@#$" | "20%"    | "M"  | "5"      |
+      | "jakub@gmail.com" | "admin1234!@#$" | "20%"    | "S"  | "5"      |

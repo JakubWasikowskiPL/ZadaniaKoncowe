@@ -1,15 +1,12 @@
 package pl.coderslab.shop;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class ShopMyAddressesPage {
-    private final WebDriver driver;
+public class ShopMyAddressesPage extends BasePage {
 
     @FindBy(xpath = "//div[1]/h4")
     private List<WebElement> aliases;
@@ -18,13 +15,12 @@ public class ShopMyAddressesPage {
     private List<WebElement> addresses;
 
     @FindBy(xpath = "//div[@class=\"address-footer\"]/a[2]")
-    private List<WebElement>deleteBtns;
+    private List<WebElement> deleteBtns;
     @FindBy(xpath = "//*[@id=\"content\"]/*[@class=\"addresses-footer\"]/a")
     private WebElement newAddressBtn;
 
     public ShopMyAddressesPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public boolean addressIsVisible() {
@@ -46,7 +42,7 @@ public class ShopMyAddressesPage {
     }
 
     public void removeAddresses() {
-        for (int i =deleteBtns.size()-1; i >= 1; i--) {
+        for (int i = deleteBtns.size() - 1; i >= 1; i--) {
             deleteBtns.get(i).click();
         }
 

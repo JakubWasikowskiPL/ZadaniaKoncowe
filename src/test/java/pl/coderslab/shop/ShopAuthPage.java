@@ -3,10 +3,8 @@ package pl.coderslab.shop;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ShopAuthPage {
-    private final WebDriver driver;
+public class ShopAuthPage extends BasePage {
 
     @FindBy(id = "field-email")
     private WebElement loginEmailInput;
@@ -21,8 +19,7 @@ public class ShopAuthPage {
     private WebElement showBtn;
 
     public ShopAuthPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public ShopMyAccountPage loginAs(String login, String passwd) {
@@ -35,6 +32,6 @@ public class ShopAuthPage {
 
 
         loginBtn.click();
-        return new ShopMyAccountPage(driver);
+        return new ShopMyAccountPage(getDriver());
     }
 }

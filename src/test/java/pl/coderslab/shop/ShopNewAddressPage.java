@@ -3,10 +3,9 @@ package pl.coderslab.shop;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ShopNewAddressPage {
-    private final WebDriver driver;
+public class ShopNewAddressPage extends BasePage {
+
     @FindBy(id = "field-alias")
     private WebElement aliasInput;
 
@@ -19,7 +18,7 @@ public class ShopNewAddressPage {
     @FindBy(id = "field-city")
     private WebElement cityInput;
 
-//    @FindBy(xpath = "//*[@id=\"field-id_country\"]//*[2]")
+    //    @FindBy(xpath = "//*[@id=\"field-id_country\"]//*[2]")
     @FindBy(id = "field-id_country")
     private WebElement countryInput;
 
@@ -30,11 +29,10 @@ public class ShopNewAddressPage {
     private WebElement submitBtn;
 
     public ShopNewAddressPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
-    public void enterNewAddressData(String alias,String address,String city,String postalCode,String countryName,String phoneNumber) {
+    public void enterNewAddressData(String alias, String address, String city, String postalCode, String countryName, String phoneNumber) {
         aliasInput.clear();
         aliasInput.sendKeys(alias);
 
